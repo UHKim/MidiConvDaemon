@@ -5,6 +5,9 @@
 * Embed 작업한 쪽에서 Socket으로만 보낼 수 있다는데 이쪽은 DMX/OSC/MIDI 규격임
 * 중간에 Gateway가 필요!
 
+## Feature
+* Socket을 받아서 MIDI로 바꾼다.
+
 ## Requirements
 
 * Win PC
