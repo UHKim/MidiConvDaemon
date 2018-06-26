@@ -6,7 +6,7 @@
 * 중간에 Gateway가 필요!
 
 ## Feature
-* Socket으로 들어온 ASCII를 Mapping 하여 loopback MIDI Device에 Signal을 .
+* Socket으로 들어온 ASCII를 Mapping 하여 loopback MIDI Device에 Signal을 생성.
 
 ## Requirements
 
