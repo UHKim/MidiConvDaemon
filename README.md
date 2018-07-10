@@ -5,6 +5,9 @@
 * Embed 작업한 쪽에서 Socket으로만 보낼 수 있다는데 이쪽은 DMX/OSC/MIDI 규격임
 * 중간에 Gateway가 필요!
 
+## Feature
+* Socket으로 들어온 ASCII를 Mapping 하여 loopback MIDI Device에 Signal을 생성.
+
 ## Requirements
 
 * Win PC
