@@ -6,7 +6,7 @@
 * 중간에 Gateway가 필요!
 
 ## Feature
-* Socket으로 들어온 ASCII를 Mapping 하여 loopback MIDI Device에 Signal을 생성.
+* Socket으로 들어온 ASCII로 loopback MIDI Device에 Signal을 생성.
 
 ## Requirements
 
@@ -14,14 +14,10 @@
 * TeVirtualMidi (Tobias Erichsen's virtualMIDI SDK)
     * http://www.tobias-erichsen.de/software/virtualmidi/virtualmidi-sdk.html
 
-## How?
-
-* Socket을 받자
-* Mapping을 해주자
-* 우리쪽 규격으로 바꿔서 보내주자
-
-## Future Issue?
+## 구현 결론
 
 * Kotlin은 쓸만하다.
 * Midi Library들은 Platform Dependancy(Win/Mac)가 강하다.
+
+## Future Issue?
 * Processing도 밑단은 자바인데 이걸 Kotlin-based로 바꿀 수 없을까?
