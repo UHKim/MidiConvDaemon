@@ -30,6 +30,7 @@ fun main(args: Array<String>) {
         // Run client in it's own thread.
         thread { ClientHandler(client, vMidi).run() }
     }
+
 }
 
 fun translateIntsToMidiByte(select: Int, data1: Int, data2: Int): ByteArray {
@@ -116,49 +117,18 @@ class ClientHandler(client: Socket, device: TeVirtualMIDI) {
 }
 
 fun sendMidiCommend(text: String, device: TeVirtualMIDI){
-    if (text != "") {
-        when (text) {
-            "a" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 60, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 60, 120))
-            } // a -> C3
-            "b" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 61, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 61, 120))
-            }
-            "c" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 62, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 62, 120))
-            }
-            "d" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 63, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 63, 120))
-            }
-            "e" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 64, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 64, 120))
-            }
-            "f" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 65, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 65, 120))
-            }
-            "g" -> {
-                device.sendCommand( translateIntsToMidiByte(144, 66, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 66, 120))
-            }
-            else -> {
-                device.sendCommand( translateIntsToMidiByte(144, 72, 120))
-                sleep(50)
-                device.sendCommand( translateIntsToMidiByte(128, 72, 120))
-            }
+    if (text != "" && text[0] == 'M'){
+        try {
+            var midinote: Int = text.split('M')[1].toInt()
+
+            device.sendCommand( translateIntsToMidiByte(144, midinote, 120))
+            sleep(50)
+            device.sendCommand( translateIntsToMidiByte(128, midinote, 120))
         }
+        catch (e: Exception) {
+            println("Error occoured ($e) when printing Notes from $text")
+        }
+
         println("MIDI Trnasmit Complete from input ASCII $text")
     }
 }
