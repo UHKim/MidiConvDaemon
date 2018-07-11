@@ -14,10 +14,10 @@
 * TeVirtualMidi (Tobias Erichsen's virtualMIDI SDK)
     * http://www.tobias-erichsen.de/software/virtualmidi/virtualmidi-sdk.html
 
-## 구현 결론
+## 결론?
 
-* Kotlin은 쓸만하다.
 * Midi Library들은 Platform Dependancy(Win/Mac)가 강하다.
 
 ## Future Issue?
+
 * Processing도 밑단은 자바인데 이걸 Kotlin-based로 바꿀 수 없을까?
